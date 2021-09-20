@@ -5,6 +5,7 @@
  */
 package classe;
 
+import constantes.StatusAluno;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,15 +24,15 @@ public class Aluno {
     
     private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
-    @Override
-    public String toString() {
-        return "Aluno{" + "nome=" + nome + ", idade=" + idade + ", dataNasciemento=" + dataNasciemento + ", numeroCpf=" + numeroCpf + ", RegistroGeral=" + RegistroGeral + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", disciplinas=" + disciplinas + '}';
-    }
-
 
 
     public Aluno() {/* cria os dados na memoria */
 
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" + "nome=" + nome + ", idade=" + idade + ", dataNasciemento=" + dataNasciemento + ", numeroCpf=" + numeroCpf + ", RegistroGeral=" + RegistroGeral + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado=" + serieMatriculado + ", disciplinas=" + disciplinas + '}';
     }
     
 
@@ -186,7 +187,7 @@ public class Aluno {
      }
  
 // aprovação do aluno 
-    public boolean getAlunoAprovado2(){
+    public boolean getAlunoAprovado1(){
         double media = this.getMediaNota();
                 if(media >= 70){
                     return true;
@@ -194,4 +195,18 @@ public class Aluno {
                     return false;
                 }
     }
+      public String getAlunoAprovado2(){
+        double media = this.getMediaNota();
+                if(media >= 50){
+                    if(media<= 70){
+                        return StatusAluno.APROVADO;
+                    }else{
+                        return StatusAluno.RECUPERACAO;
+                    }
+                 
+                }else {
+                    return StatusAluno.REPROVADO;
+                }
 }
+}
+

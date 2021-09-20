@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author thiag
  */
 public class Disciplina {
- private String disciplinas;
+ private String disciplina;
 private double nota1;
 
 //essa classe servira para todos os obj e istancias
